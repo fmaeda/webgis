@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Mouse"
+  },
+  {
+    "id": "2",
+    "name": "Monitor"
+  },
+  {
+    "id": "3",
+    "name": "Celular"
+  },
+  {
+    "id": "4",
+    "name": "Camera"
+  },
+  {
+    "id": "5",
+    "name": "Notebook"
+  },
+  {
+    "id": "6",
+    "name": "Caneta"
+  }
+]

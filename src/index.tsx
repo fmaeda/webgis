@@ -1,10 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'emotion-theming';
+import { PersistGate } from 'redux-persist/integration/react';
+import { AppContainer } from 'react-hot-loader';
+
+import configureStore from 'store/configureStore';
+import { theme } from 'styles';
+
 import './index.css';
-import App from './App';
+import MainRoute from 'routes';
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const { store, persistor } = configureStore();
+
+const render = (AppComponent: React.ComponentType) => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AppContainer>
+            <AppComponent />
+          </AppContainer>
+        </PersistGate>
+      </ThemeProvider>
+    </Provider>,
+    document.getElementById('root') as HTMLElement,
+  );
+};
+
+render(MainRoute);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
