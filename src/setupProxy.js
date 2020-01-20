@@ -12,39 +12,13 @@ module.exports = app => {
     }),
   );
   app.use(
-    proxy('/ibama/maptiles', {
-      // target: 'http://10.1.8.62:8082',
-      target: 'http://localhost:8080',
+    proxy('/maptiles', {
+      // target: 'http://10.1.8.80:9090',
+      target: 'http://10.1.8.83:8080',
       changeOrigin: true,
-      // secure: false,
       pathRewrite: {
-        '^/ibama/maptiles': '/',
+        '^/maptiles': '/',
       },
-    }),
-  );
-  app.use(
-    proxy('/ibama/vector', {
-      // target: 'http://10.1.8.62:8082',
-      target: 'http://localhost:8081',
-      changeOrigin: true,
-      // secure: false,
-      pathRewrite: {
-        '^/ibama/vector': '/',
-      },
-    }),
-  );
-  app.use(
-    proxy('/ibama/rebola', {
-      // target: 'http://10.1.8.62:8082',
-      target: 'http://10.1.8.213:8000',
-      changeOrigin: true,
-      // secure: false,
-      pathRewrite: {
-        '^/ibama/rebola': '/',
-      },
-      // onProxyReq: (proxyReq, req, res) => {
-      //   console.log('req', req);
-      // },
     }),
   );
 };
