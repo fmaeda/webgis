@@ -1,54 +1,27 @@
 import React from 'react';
-import ReactMapGL, { ViewportProps, StaticMap } from 'react-map-gl';
+import ReactMapGL, { ViewportProps, Source, Layer } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import DeckGL, { RGBAColor } from 'deck.gl';
-import { ScatterplotLayer } from '@deck.gl/layers';
+import { ThunkActionDispatch } from 'redux-thunk';
+import { inventarioThunks } from 'store/inventario';
+import { connect } from 'react-redux';
 
 import taxiData from 'data/taxi';
-
 import { Container } from './styled';
 
-const PICKUP_COLOR: RGBAColor = [0, 128, 255];
-const DROPOFF_COLOR: RGBAColor = [255, 0, 128];
-
-function renderLayers(props) {
-  const { data } = props;
-  return [
-    new ScatterplotLayer<{ position: [number, number]; pickup: boolean }>({
-      id: 'scatterplot-teste',
-      getPosition: d => d.position,
-      getFillColor: d => (d.pickup ? PICKUP_COLOR : DROPOFF_COLOR),
-      // getLineColor: d => [0, 0, 0],
-      // getColor: d => (d.pickup ? PICKUP_COLOR : DROPOFF_COLOR),
-      getRadius: d => 22,
-      // opacity: 0.5,
-      pickable: true,
-      radiusScale: 6,
-      radiusMinPixels: 1,
-      radiusMaxPixels: 30,
-      data,
-    }),
-  ];
-}
-
-type Props = {};
+type Props = {
+  fetchInventario: ThunkActionDispatch<typeof inventarioThunks.fetchInventario>;
+};
 
 type State = {
   viewport: Partial<ViewportProps>;
   points: Array<any>;
 };
 
-export default class extends React.Component<Props, State> {
+class MapRoute extends React.Component<Props, State> {
   state = {
     viewport: {
-      // latitude: -15,
-      // longitude: -70,
-      // zoom: 3.5,
-      // longitude: -74.006,
-      // latitude: 40.7128,
-      // zoom: 12,
-      longitude: -74,
-      latitude: 40.7,
+      longitude: -87.622088,
+      latitude: 41.878781,
       zoom: 11,
       bearing: 0,
       pitch: 0,
@@ -57,20 +30,20 @@ export default class extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    this._processData();
+    // this._processData();
   }
 
   _processData() {
     const points = taxiData.reduce((accu: Array<any>, curr) => {
       accu.push({
-        position: [
+        coord: [
           Number(curr['pickup_longitude']),
           Number(curr['pickup_latitude']),
         ],
         pickup: true,
       });
       accu.push({
-        position: [
+        coord: [
           Number(curr['dropoff_longitude']),
           Number(curr['dropoff_latitude']),
         ],
@@ -89,28 +62,26 @@ export default class extends React.Component<Props, State> {
     });
   };
 
+  handleFetch = () => {
+    const { fetchInventario } = this.props;
+    console.log('fetching...');
+    fetchInventario().then(points => {
+      // console.log('points', points);
+      console.log('finish!');
+      this.setState({ points });
+    });
+  };
+
   render() {
     const { viewport } = this.state;
     return (
       <Container>
+        <button onClick={this.handleFetch}>Fetch Inventario</button>
         <ReactMapGL
+          width="100%"
+          height="100%"
           {...viewport}
-          width="100%"
-          height="100%"
-          mapStyle="/maptiles/styles/klokantech-basic/style.json"
           onViewportChange={this.handleViewportChange}
-        >
-          <DeckGL
-            width="100%"
-            height="100%"
-            viewState={viewport}
-            layers={renderLayers({ data: this.state.points })}
-            // onViewportChange={this.handleViewportChange}
-          ></DeckGL>
-        </ReactMapGL>
-        {/* <ReactMapGL
-          width="100%"
-          height="100%"
           mapStyle={{
             version: 8,
             sources: {
@@ -133,8 +104,31 @@ export default class extends React.Component<Props, State> {
               },
             ],
           }}
-        /> */}
+        >
+          <Source
+            id="mapillary"
+            type="vector"
+            tiles={[
+              'https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt',
+            ]}
+          />
+          <Layer
+            id="mapillary"
+            type="line"
+            source="mapillary"
+            source-layer="mapillary-sequences"
+            paint={{
+              'line-opacity': 0.6,
+              'line-color': 'rgb(53, 175, 109)',
+              'line-width': 2,
+            }}
+          />
+        </ReactMapGL>
       </Container>
     );
   }
 }
+
+export default connect(null, {
+  fetchInventario: inventarioThunks.fetchInventario,
+})(MapRoute);

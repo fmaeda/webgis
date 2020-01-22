@@ -31,6 +31,7 @@
     "redux": "^4.0.4",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
+    "supercluster": "^7.0.0",
     "typesafe-actions": "^4.4.2",
     "typescript": "^3.7.4"
   },
