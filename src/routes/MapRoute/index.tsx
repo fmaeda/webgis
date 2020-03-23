@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactMapGL, { ViewportProps, Source, Layer } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { ThunkActionDispatch } from 'redux-thunk';
 import { inventarioThunks } from 'store/inventario';
 import { connect } from 'react-redux';
 
-import taxiData from 'data/taxi';
 import { Container } from './styled';
 
-type Props = {
-  fetchInventario: ThunkActionDispatch<typeof inventarioThunks.fetchInventario>;
-};
+type Props = {};
 
 type State = {
   viewport: Partial<ViewportProps>;
@@ -29,46 +25,9 @@ class MapRoute extends React.Component<Props, State> {
     points: [],
   };
 
-  componentDidMount() {
-    // this._processData();
-  }
-
-  _processData() {
-    const points = taxiData.reduce((accu: Array<any>, curr) => {
-      accu.push({
-        coord: [
-          Number(curr['pickup_longitude']),
-          Number(curr['pickup_latitude']),
-        ],
-        pickup: true,
-      });
-      accu.push({
-        coord: [
-          Number(curr['dropoff_longitude']),
-          Number(curr['dropoff_latitude']),
-        ],
-        pickup: false,
-      });
-      return accu;
-    }, []);
-    this.setState({
-      points,
-    });
-  }
-
   handleViewportChange = (viewport: ViewportProps) => {
     this.setState({
       viewport,
-    });
-  };
-
-  handleFetch = () => {
-    const { fetchInventario } = this.props;
-    console.log('fetching...');
-    fetchInventario().then(points => {
-      // console.log('points', points);
-      console.log('finish!');
-      this.setState({ points });
     });
   };
 
@@ -76,7 +35,6 @@ class MapRoute extends React.Component<Props, State> {
     const { viewport } = this.state;
     return (
       <Container>
-        <button onClick={this.handleFetch}>Fetch Inventario</button>
         <ReactMapGL
           width="100%"
           height="100%"
