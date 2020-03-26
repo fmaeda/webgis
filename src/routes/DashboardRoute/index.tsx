@@ -13,6 +13,8 @@ import { Container, Head, Content } from './styled';
 import Card from 'components/Card';
 import data from './data';
 
+import SamplePieChart from './SamplePieChart';
+
 type Props = {};
 
 class DashboardRoute extends React.Component<Props> {
@@ -20,7 +22,9 @@ class DashboardRoute extends React.Component<Props> {
     return (
       <Container>
         <Head>
-          <Card>Card 1</Card>
+          <Card>
+            <SamplePieChart />
+          </Card>
           <Card>Card 2</Card>
           <Card>Card 3</Card>
         </Head>

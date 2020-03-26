@@ -8,17 +8,21 @@ const Container = styled.div`
   margin: 12px;
 `;
 
-const Image = styled.img`
-  width: 48px;
+const Image = styled.img<{ size?: number }>`
+  width: ${({ size = 48 }) => `${size}px`};
 `;
 
-type Props = {};
+type Props = {
+  size?: number;
+};
 
 class Logo extends React.Component<Props> {
   render() {
+    const { size } = this.props;
+
     return (
       <Container>
-        <Image src={logoImg} />
+        <Image size={size} src={logoImg} />
       </Container>
     );
   }

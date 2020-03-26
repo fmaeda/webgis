@@ -1,50 +1,23 @@
-import { hot } from 'react-hot-loader';
 import React from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import MapRoute from './MapRoute';
 import DashboardRoute from './DashboardRoute';
 import AboutRoute from './AboutRoute';
 
-import Logo from 'components/Logo';
-import Menu from 'components/Menu';
-import {
-  Container,
-  MainContainer,
-  MenuContainer,
-  RouteContainer,
-  FilterContainer,
-} from './styled';
+type Props = {};
 
-const history = createBrowserHistory();
-
-class MainRoute extends React.Component {
+export default class extends React.Component<Props> {
   render() {
     return (
-      <Container>
-        <Router history={history}>
-          <MainContainer>
-            <MenuContainer>
-              <Logo />
-              <Menu />
-            </MenuContainer>
-            <RouteContainer>
-              <Switch>
-                <Route path="/dashboard" component={DashboardRoute} />
-                <Route path="/map" component={MapRoute} />
-                <Route path="/about" component={AboutRoute} />
-                <Route path="/" exact>
-                  <Redirect to="/map" />
-                </Route>
-              </Switch>
-            </RouteContainer>
-            <FilterContainer>filters...</FilterContainer>
-          </MainContainer>
-        </Router>
-      </Container>
+      <Switch>
+        <Route path="/dashboard" component={DashboardRoute} />
+        <Route path="/map" component={MapRoute} />
+        <Route path="/about" component={AboutRoute} />
+        <Route path="/" exact>
+          <Redirect to="/map" />
+        </Route>
+      </Switch>
     );
   }
 }
-
-export default hot(module)(MainRoute);
