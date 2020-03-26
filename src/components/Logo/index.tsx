@@ -5,11 +5,11 @@ import logoImg from 'resources/img/logo_ibama.png';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 16px;
+  margin: 12px;
 `;
 
 const Image = styled.img`
-  width: 40px;
+  width: 48px;
 `;
 
 type Props = {};
