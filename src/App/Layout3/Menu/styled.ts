@@ -1,16 +1,24 @@
 import styled from 'styles';
 
 export const Container = styled.div`
-  /* position: absolute; */
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
+  position: relative;
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
+  flex: 1;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: solid yellow; */
+`;
+
+export const Content = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
   align-items: center;
   justify-content: center;
-  /* width: 100%; */
-  /* border: solid yellow; */
 `;
 
 type ItemProps = {
@@ -28,21 +36,22 @@ export const ItemContainer = styled.div<ItemProps>`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   color: rgba(255, 255, 255, 0.5);
-  border-left: 4px solid transparent;
+  border-left: 2px solid transparent;
   :hover {
     color: white;
   }
 
   > svg {
-    font-size: 32px;
+    font-size: 24px;
   }
   ${({ active, color }) =>
     active &&
     `
-    border-left: 4px solid ${color};
-    border-radius: 2px 0 0 2px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.2);
+    border-right: 2px solid ${color};
+    margin-right: -2px;
+    /* border-radius: 2px 0 0 2px; */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.2);
     color: white;
     cursor: default;
   `}

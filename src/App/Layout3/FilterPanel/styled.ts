@@ -28,8 +28,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: rgba(0, 0, 0, 0.25);
   z-index: 2;
+  background: rgba(0, 0, 0, 0.25);
   filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.3));
   backdrop-filter: blur(3px);
 `;

@@ -23,10 +23,13 @@ export const MenuContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: inset -4px 0px 2px -2px rgba(0, 0, 0, 0.25);
   z-index: 2;
-  background: #3a3e4b;
   min-width: 60px;
+
+  box-shadow: inset -4px 0px 2px -2px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  /* filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.3)); */
 `;
 
 export const LogoContainer = styled.div`
@@ -55,7 +58,7 @@ export const MainContainer = styled.div`
   margin-right: 120px;
   padding: 0 20px;
   /* padding: 0 40px 20px 40px; */
-  /* border: solid black 1px; */
+  /* border: solid lime; */
 `;
 
 export const HeaderContainer = styled.div`

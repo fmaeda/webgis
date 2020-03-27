@@ -5,7 +5,7 @@ import logoImg from 'resources/img/logo_ibama.png';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 12px;
+  margin: 8px 12px;
 `;
 
 const Image = styled.img<{ size?: number }>`

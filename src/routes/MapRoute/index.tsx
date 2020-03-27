@@ -49,9 +49,9 @@ class MapRoute extends React.Component<Props, State> {
                   // eslint-disable-next-line max-len
                   // 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png',
                   // eslint-disable-next-line max-len
-                  'https://abcd.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-                  // 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  // 'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  // 'https://abcd.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                  'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 ],
                 tileSize: 256,
               },

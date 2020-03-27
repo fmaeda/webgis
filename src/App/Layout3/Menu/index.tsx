@@ -6,7 +6,7 @@ import { IoIosMenu } from 'react-icons/io';
 
 import Item from './Item';
 
-import { Container, Spacer } from './styled';
+import { Container, Content, Spacer } from './styled';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 type Props = {} & RouteComponentProps;
@@ -53,6 +53,7 @@ class Menu extends React.Component<Props> {
           active={pathname === '/about'}
           onClick={this.handleClick('/about')}
         />
+        <Content></Content>
       </Container>
     );
   }

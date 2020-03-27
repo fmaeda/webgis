@@ -22,18 +22,24 @@ class DashboardRoute extends React.Component<Props> {
     return (
       <Container>
         <Head>
-          <Card>
+          <Card
+            title="Autorizações por Bioma"
+            details={
+              <div style={{ padding: '12px' }}>
+                <p>Detalhes do projeto...</p>
+                <p>Detalhes do projeto...</p>
+                <p>Detalhes do projeto...</p>
+              </div>
+            }
+          >
             <SamplePieChart />
           </Card>
-          <Card>Card 2</Card>
+          <Card>card 2</Card>
           <Card>Card 3</Card>
         </Head>
         <Content>
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart
-              margin={{ top: 30, right: 40, left: 20, bottom: 20 }}
-              data={data}
-            >
+            <AreaChart data={data}>
               <defs>
                 <linearGradient id="color2018" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#8884d8" stopOpacity={0.7} />
@@ -49,25 +55,9 @@ class DashboardRoute extends React.Component<Props> {
                 </linearGradient>
               </defs>
 
-              <XAxis
-                dataKey="label"
-                interval="preserveStartEnd"
-                height={70}
-                // tick={tickProps => <TimeAxisTick {...tickProps} />}
-              />
-              <YAxis
-                interval="preserveStartEnd"
-                // tick={tickProps => <SimpleAxisTick {...tickProps} />}
-              />
-              {/* <Tooltip
-                content={
-                  <DynamicComparisonTooltip
-                    baseValueProperty="2017"
-                    legendColors={legendColors}
-                    legendLabels={legendLabels}
-                  />
-                }
-              /> */}
+              <XAxis dataKey="label" interval="preserveStartEnd" height={70} />
+              <YAxis interval="preserveStartEnd" />
+
               <CartesianGrid strokeDasharray="3 3" />
 
               <Area
@@ -94,17 +84,6 @@ class DashboardRoute extends React.Component<Props> {
                 fillOpacity={1}
                 fill="url(#color2020)"
               />
-
-              {/* {Objects.entries(legendColors).map(([key, color]) => (
-                <Area
-                  key={key}
-                  type="monotone"
-                  dataKey={key}
-                  stroke={color}
-                  fillOpacity={1}
-                  fill={`url(#colorRef_${key})`}
-                />
-              ))} */}
             </AreaChart>
           </ResponsiveContainer>
         </Content>
