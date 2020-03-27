@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/webgis/static/css/main.1fee1c63.chunk.css",
+    "main.js": "/webgis/static/js/main.9b41fc56.chunk.js",
+    "main.js.map": "/webgis/static/js/main.9b41fc56.chunk.js.map",
+    "runtime-main.js": "/webgis/static/js/runtime-main.40e1f947.js",
+    "runtime-main.js.map": "/webgis/static/js/runtime-main.40e1f947.js.map",
+    "static/css/2.2ce47ad2.chunk.css": "/webgis/static/css/2.2ce47ad2.chunk.css",
+    "static/js/2.5fccf951.chunk.js": "/webgis/static/js/2.5fccf951.chunk.js",
+    "static/js/2.5fccf951.chunk.js.map": "/webgis/static/js/2.5fccf951.chunk.js.map",
+    "index.html": "/webgis/index.html",
+    "precache-manifest.9d52e3984de38928e2cae2e44abc1df5.js": "/webgis/precache-manifest.9d52e3984de38928e2cae2e44abc1df5.js",
+    "service-worker.js": "/webgis/service-worker.js",
+    "static/css/2.2ce47ad2.chunk.css.map": "/webgis/static/css/2.2ce47ad2.chunk.css.map",
+    "static/css/main.1fee1c63.chunk.css.map": "/webgis/static/css/main.1fee1c63.chunk.css.map",
+    "static/js/2.5fccf951.chunk.js.LICENSE.txt": "/webgis/static/js/2.5fccf951.chunk.js.LICENSE.txt",
+    "static/media/bg-pattern.svg": "/webgis/static/media/bg-pattern.3d094ea6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40e1f947.js",
+    "static/css/2.2ce47ad2.chunk.css",
+    "static/js/2.5fccf951.chunk.js",
+    "static/css/main.1fee1c63.chunk.css",
+    "static/js/main.9b41fc56.chunk.js"
+  ]
+}
