@@ -1,20 +1,21 @@
 import React from 'react';
+
 import { ItemContainer, SelectedMarker } from './styled';
 
 type Props = {
-  icon: React.ComponentType;
-  onClick: () => void;
   color: string;
+  label: string;
+  onClick: () => void;
   active?: boolean;
 };
 
 class Item extends React.Component<Props> {
   render() {
-    const { active, icon: Icon, onClick, color } = this.props;
+    const { color, label, active, onClick } = this.props;
 
     return (
-      <ItemContainer active={!!active} onClick={onClick} color={color}>
-        <Icon />
+      <ItemContainer color={color} active={active} onClick={onClick}>
+        {label}
         <SelectedMarker color={color} active={active} />
       </ItemContainer>
     );

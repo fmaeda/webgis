@@ -5,4 +5,7 @@ export const Container = styled.div`
   flex: 1;
   box-shadow: 0px 0px 40px 4px rgba(0, 0, 0, 0.5);
   margin: 20px 20px 40px 20px;
+  border-radius: 4px;
+  /* border: solid red; */
+  overflow: hidden;
 `;

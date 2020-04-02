@@ -3,7 +3,7 @@ import React from 'react';
 import MainRoute from 'routes';
 
 import Logo from 'components/Logo';
-import Menu from './Menu';
+import Menu from 'components/Menu';
 import {
   Container,
   MainContainer,
@@ -11,8 +11,10 @@ import {
   HeaderContainer,
   Divider,
   LogoContainer,
+  MainRouteContainer,
 } from './styled';
 import FilterPanel from './FilterPanel';
+import SubMenu from 'components/SubMenu';
 
 class AppLayout extends React.Component {
   render() {
@@ -25,11 +27,14 @@ class AppLayout extends React.Component {
           <HeaderContainer>
             <LogoContainer>
               <Logo />
-              <span>WEBGIS / SINAFLOR</span>
             </LogoContainer>
-            <Divider />
+            <span>WEBGIS / SINAFLOR</span>
+            <SubMenu />
           </HeaderContainer>
-          <MainRoute />
+          <Divider />
+          <MainRouteContainer>
+            <MainRoute />
+          </MainRouteContainer>
         </MainContainer>
         <FilterPanel></FilterPanel>
       </Container>

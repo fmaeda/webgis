@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { OptionContainer } from './styled';
+import { OptionContainer, SelectedMarker } from './styled';
 
 type Props = {
   icon: React.ComponentType;
   color: string;
-  onClick: () => void;
+  active?: boolean;
+  onClick?: () => void;
 };
 
 class Option extends React.Component<Props> {
   render() {
-    const { icon: Icon, color, onClick } = this.props;
-
+    const { icon: Icon, color, onClick, active } = this.props;
     return (
-      <OptionContainer color={color} onClick={onClick}>
+      <OptionContainer color={color} onClick={onClick} active={active}>
         <Icon />
+        <SelectedMarker active={active} color={color} />
       </OptionContainer>
     );
   }

@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   /* align-items: center; */
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 16px 20px;
   opacity: 0.7;
 `;
@@ -23,8 +23,6 @@ export const Item = styled.div<ItemProps>`
   align-items: center;
   margin: 4px;
   color: whitesmoke;
-  > svg {
-    margin-right: 8px;
-    color: ${({ color }) => color};
-  }
+  border-left: 6px solid ${({ color }) => color};
+  padding-left: 8px;
 `;

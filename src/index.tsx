@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'emotion-theming';
 import { PersistGate } from 'redux-persist/integration/react';
 import { AppContainer } from 'react-hot-loader';
-import { createBrowserHistory } from 'history';
-import { Router } from 'react-router-dom';
+// import { createBrowserHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 
 import configureStore from 'store/configureStore';
 import { theme } from 'styles';
@@ -16,7 +16,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const { store, persistor } = configureStore();
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
 const render = (AppComponent: React.ComponentType) => {
   ReactDOM.render(
@@ -24,9 +24,9 @@ const render = (AppComponent: React.ComponentType) => {
       <ThemeProvider theme={theme}>
         <PersistGate loading={null} persistor={persistor}>
           <AppContainer>
-            <Router history={history}>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
               <AppComponent />
-            </Router>
+            </BrowserRouter>
           </AppContainer>
         </PersistGate>
       </ThemeProvider>

@@ -1,20 +1,19 @@
 import React from 'react';
+
 import { ItemContainer } from './styled';
 
 type Props = {
-  icon: React.ComponentType;
   onClick: () => void;
-  color: string;
-  active?: boolean;
+  label: string;
 };
 
 class Item extends React.Component<Props> {
   render() {
-    const { active, icon: Icon, onClick, color } = this.props;
+    const { onClick, label } = this.props;
 
     return (
-      <ItemContainer active={!!active} onClick={onClick} color={color}>
-        <Icon />
+      <ItemContainer onClick={onClick}>
+        <span>{label}</span>
       </ItemContainer>
     );
   }

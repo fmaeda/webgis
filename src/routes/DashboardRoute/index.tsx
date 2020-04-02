@@ -10,10 +10,9 @@ import {
 } from 'recharts';
 
 import { Container, Head, Content } from './styled';
-import Card from 'components/Card';
 import data from './data';
 
-import SamplePieChart from './SamplePieChart';
+import AutorizacoesPanel from './AutorizacoesPanel';
 
 type Props = {};
 
@@ -22,20 +21,7 @@ class DashboardRoute extends React.Component<Props> {
     return (
       <Container>
         <Head>
-          <Card
-            title="Autorizações por Bioma"
-            details={
-              <div style={{ padding: '12px' }}>
-                <p>Detalhes do projeto...</p>
-                <p>Detalhes do projeto...</p>
-                <p>Detalhes do projeto...</p>
-              </div>
-            }
-          >
-            <SamplePieChart />
-          </Card>
-          <Card>card 2</Card>
-          <Card>Card 3</Card>
+          <AutorizacoesPanel />
         </Head>
         <Content>
           <ResponsiveContainer width="100%" height="100%">
@@ -55,8 +41,13 @@ class DashboardRoute extends React.Component<Props> {
                 </linearGradient>
               </defs>
 
-              <XAxis dataKey="label" interval="preserveStartEnd" height={70} />
-              <YAxis interval="preserveStartEnd" />
+              <XAxis
+                dataKey="label"
+                interval="preserveStartEnd"
+                height={70}
+                stroke="whitesmoke"
+              />
+              <YAxis interval="preserveStartEnd" stroke="whitesmoke" />
 
               <CartesianGrid strokeDasharray="3 3" />
 

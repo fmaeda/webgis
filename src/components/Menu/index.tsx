@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { FaGlobeAmericas, FaInfoCircle } from 'react-icons/fa';
-import { AiOutlineDashboard } from 'react-icons/ai';
+import { IoIosMenu } from 'react-icons/io';
 
 import Item from './Item';
 
-import { Container } from './styled';
+import { Container, Spacer } from './styled';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { MenuItem, menuIcons, menuColors, menuPaths } from 'model/enums';
 
 type Props = {} & RouteComponentProps;
 
@@ -15,6 +15,11 @@ class Menu extends React.Component<Props> {
     const { history } = this.props;
     history.push(path);
   };
+
+  handleToggle = () => {
+    console.log('toggle');
+  };
+
   render() {
     const {
       location: { pathname },
@@ -23,23 +28,21 @@ class Menu extends React.Component<Props> {
     return (
       <Container>
         <Item
-          icon={FaGlobeAmericas}
-          color="#2ECC40"
-          active={pathname === '/map'}
-          onClick={this.handleClick('/map')}
+          icon={IoIosMenu}
+          color="transparent"
+          active={false}
+          onClick={this.handleToggle}
         />
-        <Item
-          icon={AiOutlineDashboard}
-          color="#FF851B"
-          active={pathname === '/dashboard'}
-          onClick={this.handleClick('/dashboard')}
-        />
-        <Item
-          icon={FaInfoCircle}
-          color="#0074D9"
-          active={pathname === '/about'}
-          onClick={this.handleClick('/about')}
-        />
+        <Spacer />
+        {Object.values(MenuItem).map(key => (
+          <Item
+            key={key}
+            icon={menuIcons[key]}
+            color={menuColors[key]}
+            active={pathname === menuPaths[key]}
+            onClick={this.handleClick(menuPaths[key])}
+          />
+        ))}
       </Container>
     );
   }

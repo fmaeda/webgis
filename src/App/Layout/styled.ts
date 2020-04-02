@@ -36,18 +36,13 @@ export const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* position: absolute;
-  top: 12px;
-  left: 50%; */
-  /* transform: translateX(-50%); */
-  /* border-radius: 80px; */
-  /* background-image: -webkit-radial-gradient(
-    50% 0%,
-    farthest-side ellipse,
-    #7082ac 10%,
-    #414c6a 120%
-  ); */
-  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1)); */
+  align-self: stretch;
+`;
+
+export const MainRouteContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 `;
 
 export const MainContainer = styled.div`
@@ -57,14 +52,13 @@ export const MainContainer = styled.div`
   flex-direction: column;
   margin-right: 120px;
   padding: 0 20px;
-  /* padding: 0 40px 20px 40px; */
-  /* border: solid lime; */
 `;
 
 export const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
   align-self: stretch;
   /* padding: 12px 20px; */
 
@@ -84,11 +78,9 @@ export const Divider = styled.div<DividerProps>`
       ? `
     width: 100%;
     height: 1px;
-    margin: 8px 0;
   `
       : `
     height: 100%;
     width: 1px;
-    margin: 0 8px;
   `}
 `;
