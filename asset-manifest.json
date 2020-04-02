@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/webgis/static/css/main.af080a07.chunk.css",
-    "main.js": "/webgis/static/js/main.ff44c185.chunk.js",
-    "main.js.map": "/webgis/static/js/main.ff44c185.chunk.js.map",
+    "main.js": "/webgis/static/js/main.def3e122.chunk.js",
+    "main.js.map": "/webgis/static/js/main.def3e122.chunk.js.map",
     "runtime-main.js": "/webgis/static/js/runtime-main.40e1f947.js",
     "runtime-main.js.map": "/webgis/static/js/runtime-main.40e1f947.js.map",
     "static/css/2.2ce47ad2.chunk.css": "/webgis/static/css/2.2ce47ad2.chunk.css",
-    "static/js/2.54b11c1d.chunk.js": "/webgis/static/js/2.54b11c1d.chunk.js",
-    "static/js/2.54b11c1d.chunk.js.map": "/webgis/static/js/2.54b11c1d.chunk.js.map",
+    "static/js/2.2f0af4c5.chunk.js": "/webgis/static/js/2.2f0af4c5.chunk.js",
+    "static/js/2.2f0af4c5.chunk.js.map": "/webgis/static/js/2.2f0af4c5.chunk.js.map",
     "index.html": "/webgis/index.html",
-    "precache-manifest.ba65b4f90e4ea67a43c25f6f655f46c0.js": "/webgis/precache-manifest.ba65b4f90e4ea67a43c25f6f655f46c0.js",
+    "precache-manifest.14c0e80eb346de49347d8d5690950c80.js": "/webgis/precache-manifest.14c0e80eb346de49347d8d5690950c80.js",
     "service-worker.js": "/webgis/service-worker.js",
     "static/css/2.2ce47ad2.chunk.css.map": "/webgis/static/css/2.2ce47ad2.chunk.css.map",
     "static/css/main.af080a07.chunk.css.map": "/webgis/static/css/main.af080a07.chunk.css.map",
-    "static/js/2.54b11c1d.chunk.js.LICENSE.txt": "/webgis/static/js/2.54b11c1d.chunk.js.LICENSE.txt",
+    "static/js/2.2f0af4c5.chunk.js.LICENSE.txt": "/webgis/static/js/2.2f0af4c5.chunk.js.LICENSE.txt",
     "static/media/bg-pattern.svg": "/webgis/static/media/bg-pattern.3d094ea6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.40e1f947.js",
     "static/css/2.2ce47ad2.chunk.css",
-    "static/js/2.54b11c1d.chunk.js",
+    "static/js/2.2f0af4c5.chunk.js",
     "static/css/main.af080a07.chunk.css",
-    "static/js/main.ff44c185.chunk.js"
+    "static/js/main.def3e122.chunk.js"
   ]
 }
