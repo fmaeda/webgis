@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
-import { GoPrimitiveSquare } from 'react-icons/go';
+import { BarChart, Bar, Cell, YAxis, CartesianGrid } from 'recharts';
 import { Container, Labels, Item } from './styled';
 
 const data = [

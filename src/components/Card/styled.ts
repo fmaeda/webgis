@@ -177,4 +177,7 @@ export const Children = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: 8px;
+  /* border: solid red; */
+  transition: background-color 0.2s ease-in-out;
 `;

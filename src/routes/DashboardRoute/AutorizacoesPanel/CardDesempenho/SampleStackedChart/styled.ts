@@ -14,7 +14,19 @@ export const ItemsContainer = styled.div`
   margin-left: 20px;
 `;
 
-export const ItemContainer = styled.div`
+type ItemProps = {
+  selected: boolean;
+};
+export const ItemContainer = styled.div<ItemProps>`
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    color: whitesmoke;
+  }
+  > svg {
+    margin-right: 8px;
+  }
 `;

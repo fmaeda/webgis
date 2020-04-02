@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   XAxis,
   YAxis,
@@ -13,15 +14,28 @@ import { Container, Head, Content } from './styled';
 import data from './data';
 
 import AutorizacoesPanel from './AutorizacoesPanel';
+import EmpreendimentosPanel from './EmpreendimentosPanel';
+import ArvoresPanel from './ArvoresPanel';
 
-type Props = {};
+import { RootState } from 'store';
+import { TipoDado } from 'model/enums';
+
+const mapStateToProps = ({ menu: { tipoDado } }: RootState) => ({
+  tipoDado,
+});
+
+type Props = {} & ReturnType<typeof mapStateToProps>;
 
 class DashboardRoute extends React.Component<Props> {
   render() {
+    const { tipoDado } = this.props;
+
     return (
       <Container>
         <Head>
-          <AutorizacoesPanel />
+          {tipoDado === TipoDado.AUTORIZACOES && <AutorizacoesPanel />}
+          {tipoDado === TipoDado.EMPREENDIMENTOS && <EmpreendimentosPanel />}
+          {tipoDado === TipoDado.ARVORES && <ArvoresPanel />}
         </Head>
         <Content>
           <ResponsiveContainer width="100%" height="100%">
@@ -83,4 +97,4 @@ class DashboardRoute extends React.Component<Props> {
   }
 }
 
-export default DashboardRoute;
+export default connect(mapStateToProps)(DashboardRoute);

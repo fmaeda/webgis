@@ -39,18 +39,40 @@ const data = [
   },
 ];
 
-export default class extends PureComponent {
+type Props = {};
+type State = {
+  groups: { [key: string]: boolean };
+};
+
+export default class extends PureComponent<Props, State> {
+  state = {
+    groups: data.reduce(
+      (acc, val) => ({
+        ...acc,
+        [val.name]: true,
+      }),
+      {},
+    ),
+  };
+
   handleClick = (filter: string) => () => {
-    console.log('filter');
+    this.setState(({ groups }) => ({
+      groups: {
+        ...groups,
+        [filter]: !groups[filter],
+      },
+    }));
   };
 
   render() {
+    const { groups } = this.state;
+
     return (
       <Container>
         <BarChart
           width={400}
           height={140}
-          data={data}
+          data={data.filter(r => groups[r.name])}
           margin={{
             top: 0,
             right: 0,
@@ -67,11 +89,16 @@ export default class extends PureComponent {
           <Bar dataKey="2019" fill="#82ca9d" />
         </BarChart>
         <ItemsContainer>
-          <Item onClick={this.handleClick('50%')} label="50%" />
-          <Item onClick={this.handleClick('75%')} label="75%" />
-          <Item onClick={this.handleClick('90%')} label="90%" />
-          <Item onClick={this.handleClick('95%')} label="95%" />
-          <Item onClick={this.handleClick('100%')} label="100%" />
+          {Object.keys(groups)
+            .reverse()
+            .map(group => (
+              <Item
+                key={group}
+                onClick={this.handleClick(group)}
+                label={group}
+                selected={groups[group]}
+              />
+            ))}
         </ItemsContainer>
       </Container>
     );

@@ -16,7 +16,6 @@ import {
   FrontCard,
   BackCard,
   Children,
-  Spacer,
   Title,
   AboutContainer,
 } from './styled';
@@ -62,23 +61,26 @@ class Card extends React.Component<Props, State> {
   };
 
   takeScreenshot = () => {
-    console.log('screenshot!');
     const element = this.contentRef.current;
     if (element) {
       element.style.backgroundColor = 'gray';
       html2canvas(element).then(canvas => {
-        if (navigator.clipboard['write']) {
-          canvas.toBlob(blob => {
-            navigator.clipboard['write']([
-              new ClipboardItem({ 'image/png': blob! }),
-            ]);
-          });
-        } else {
-          const link = document.createElement('a');
-          link.download = 'grafico.png';
-          link.href = canvas.toDataURL();
-          link.click();
-        }
+        const link = document.createElement('a');
+        link.download = 'grafico.png';
+        link.href = canvas.toDataURL();
+        link.click();
+        // if (navigator.clipboard && navigator.clipboard['write']) {
+        //   canvas.toBlob(blob => {
+        //     navigator.clipboard['write']([
+        //       new ClipboardItem({ 'image/png': blob! }),
+        //     ]);
+        //   });
+        // } else {
+        //   const link = document.createElement('a');
+        //   link.download = 'grafico.png';
+        //   link.href = canvas.toDataURL();
+        //   link.click();
+        // }
         element.style.backgroundColor = 'transparent';
       });
     }

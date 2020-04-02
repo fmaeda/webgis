@@ -19,7 +19,7 @@ export default class extends React.Component<Props> {
         />
         <Route path={menuPaths[MenuItem.ABOUT]} component={AboutRoute} />
         <Route path="/" exact>
-          <Redirect to="/map" />
+          <Redirect to="/dashboard" />
         </Route>
       </Switch>
     );

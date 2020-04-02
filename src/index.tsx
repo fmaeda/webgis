@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { PersistGate } from 'redux-persist/integration/react';
 import { AppContainer } from 'react-hot-loader';
 // import { createBrowserHistory } from 'history';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import configureStore from 'store/configureStore';
 import { theme } from 'styles';
@@ -24,9 +24,9 @@ const render = (AppComponent: React.ComponentType) => {
       <ThemeProvider theme={theme}>
         <PersistGate loading={null} persistor={persistor}>
           <AppContainer>
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <HashRouter>
               <AppComponent />
-            </BrowserRouter>
+            </HashRouter>
           </AppContainer>
         </PersistGate>
       </ThemeProvider>

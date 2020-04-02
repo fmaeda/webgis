@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: row;
   /* align-items: center; */
   justify-content: space-evenly;
-  margin: 16px 20px;
+  /* margin: 16px 20px; */
   opacity: 0.7;
 `;
 
