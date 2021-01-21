@@ -21,7 +21,7 @@
     "emotion-theming": "^10.0.14",
     "framer-motion": "^1.6.3",
     "html2canvas": "^1.0.0-rc.5",
-    "immer": "^3.2.0",
+    "immer": "^8.0.1",
     "immer-reducer": "^0.7.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
