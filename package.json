@@ -1,6 +1,6 @@
 {
   "name": "ibama-ts",
-  "homepage": "https://fmaeda.github.io/webgis/",
+  "homepage": "https://webgis.origame.studio",
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
